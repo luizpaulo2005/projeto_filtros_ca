@@ -19,10 +19,130 @@ def toGray(image):
   for y in range(0, h): #each pixel has coordinates
     for x in range(0, w):
       R, G, B = im.getpixel((x, y))
-      image.putpixel((x,y) , (R, G, B))
+      media = round((R * 0.2126) + (G * 0.7152) + (B * 0.0722))
+      image.putpixel((x,y) , (media, media, media))
   image.show()
 
+def toSepia(image):
+  w = image.size[0]
+  h = image.size[1]
+  for y in range(0, h):
+    for x in range(0, w):
+      R, G, B = im.getpixel((x, y))
+      nR = round(R * 0.393 + G * 0.769 + B * 0.189)
+      nG = round(R * 0.349 + G * 0.686 + B * 0.168)
+      nB = round(R * 0.272 + G * 0.534 + B * 0.131)
+      image.putpixel((x,y), (nR, nG, nB))
+  image.show()
+
+def toBW(image):
+  w = image.size[0]
+  h = image.size[1]
+  for y in range(0, h):
+    for x in range(0, w):
+      R, G, B = im.getpixel((x, y))
+
+      soma = round(R + G + B)
+
+      if (soma > 255):
+        nR = 255
+        nG = 255
+        nB = 255
+      else:
+        nR = 0
+        nG = 0
+        nB = 0
+
+      image.putpixel((x,y), (nR, nG, nB))
+  image.show()
+
+def changeChannels(image):
+  w = image.size[0]
+  h = image.size[1]
+  for y in range(0, h):
+    for x in range(0, w):
+      R, G, B = im.getpixel((x, y))
+
+      nR = G
+      nG = B
+      nB = R
+
+      image.putpixel((x, y), (nR, nG, nB))
+  image.show()
+
+def increaseRed(image):
+  w = image.size[0]
+  h = image.size[1]
+  for y in range(0, h):
+    for x in range(0, w):
+      R, G, B = im.getpixel((x, y))
+
+      nR = round(R * 1.1)
+
+      image.putpixel((x, y), (nR, G, B))
+  image.show()
+
+def increaseGreen(image):
+  w = image.size[0]
+  h = image.size[1]
+  for y in range(0, h):
+    for x in range(0, w):
+      R, G, B = im.getpixel((x, y))
+
+      nG = round(G * 1.1)
+
+      image.putpixel((x, y), (R, nG, B))
+  image.show()
+
+def increaseBlue(image):
+  w = image.size[0]
+  h = image.size[1]
+  for y in range(0, h):
+    for x in range(0, w):
+      R, G, B = im.getpixel((x, y))
+
+      nB = round(B * 1.1)
+
+      image.putpixel((x, y), (R, G, nB))
+  image.show()
 
 im = Image.open('gato2.jpg') #your image
 
-toGray(im)
+def increaseBrightness(image):
+  w = image.size[0]
+  h = image.size[1]
+  for y in range(0, h):
+    for x in range(0, w):
+      R, G, B = im.getpixel((x, y))
+
+      nR = round(R * 1.2)
+      nG = round(G * 1.2)
+      nB = round(B * 1.2)
+
+      image.putpixel((x, y), (nR, nG, nB))
+  image.show()
+
+def decreaseBrightness(image):
+  w = image.size[0]
+  h = image.size[1]
+  for y in range(0, h):
+    for x in range(0, w):
+      R, G, B = im.getpixel((x, y))
+
+      nR = round(R * 0.8)
+      nG = round(G * 0.8)
+      nB = round(B * 0.8)
+
+      image.putpixel((x, y), (nR, nG, nB))
+  image.show()
+
+# toGray(im)
+# toNegative(im)
+# toSepia(im)
+# toBW(im)
+# changeChannels(im)
+# increaseRed(im)
+# increaseGreen(im)
+# increaseBlue(im)
+# increaseBrightness(im)
+# decreaseBrightness(im)
