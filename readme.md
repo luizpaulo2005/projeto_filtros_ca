@@ -3,4 +3,4 @@
 
 Feito por:
 
-> Fernando Valentino Santos e Luiz Paulo Rodrigues da Silva Santos
+> Luiz Paulo Rodrigues da Silva Santos
