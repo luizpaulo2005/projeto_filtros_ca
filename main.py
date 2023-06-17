@@ -64,11 +64,7 @@ def changeChannels(image):
     for x in range(0, w):
       R, G, B = image.getpixel((x, y))
 
-      nR = G
-      nG = B
-      nB = R
-
-      image.putpixel((x, y), (nR, nG, nB))
+      image.putpixel((x, y), (G, B, R))
   image.show()
 
 def increaseRed(image):
@@ -164,7 +160,7 @@ def toBlur(image):
 # toNegative(im)
 # toSepia(im)
 # toBW(im)
-# changeChannels(im)
+changeChannels(im)
 # increaseRed(im)
 # increaseGreen(im)
 # increaseBlue(im)
